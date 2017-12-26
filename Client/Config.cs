@@ -24,9 +24,14 @@ namespace ClassiCubeUpdater {
         public static readonly String VersionFilePath = GamePath + "\\version.txt";
 
         /// <summary>
-        /// Full path to program to execute to start game.
+        /// Full path to program to execute to start game launcher.
         /// </summary>
-        public static readonly string GameBinaryPath = GamePath + "\\Launcher.exe";
+        public static readonly string GameLauncherPath = GamePath + "\\Launcher.exe";
+
+        /// <summary>
+        /// Full path to program to execute to start game directly when arguments are provided.
+        /// </summary>
+        public static readonly string GameExecutablePath = GamePath + "\\ClassicalSharp.exe";
 
         private static string GetGameDirectory() {
             string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ClassiCube");

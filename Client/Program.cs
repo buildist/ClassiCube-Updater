@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace ClassiCubeUpdater {
@@ -7,10 +8,30 @@ namespace ClassiCubeUpdater {
         private static UpdaterDialog dialog;
 
         public static void Main(string[] args) {
+            string[] gameArguments;
+            if (args.Length == 1) {
+                 gameArguments = ParseUrl(args[0]);
+            } else {
+                gameArguments = null;
+            }
+
             Application.EnableVisualStyles();
             statusThread = new Thread(new ThreadStart(UpdateStatus));
             statusThread.Start();
-            Updater.Run();
+            Updater.Run(gameArguments);
+        }
+
+        private static string[] ParseUrl(string url) {
+            try {
+                string[] parts = url.Split(new string[] { "://" }, StringSplitOptions.None)[1].Split('/');
+                string address = parts[0];
+                string user = parts[1];
+                string mppass = parts[2];
+                string[] ipAndPort = address.Split(':');
+                return new string[] { user, mppass, ipAndPort[0], ipAndPort[1] };
+            } catch (Exception ex) {
+                return null;
+            }
         }
 
         private static void UpdateStatus() {

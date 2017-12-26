@@ -42,7 +42,7 @@ namespace ClassiCubeUpdater {
             Error(message, null);
         }
 
-        public static void Run() {
+        public static void Run(String[] args) {
             try {
                 bool shouldDownloadUpdate = false;
                 bool installationProblem = false;
@@ -59,7 +59,7 @@ namespace ClassiCubeUpdater {
                 if (!File.Exists(Config.VersionFilePath)) {
                     shouldDownloadUpdate = true;
                     installationProblem = true;
-                } else if (!File.Exists(Config.GameBinaryPath)) {
+                } else if (!File.Exists(Config.GameLauncherPath)) {
                     shouldDownloadUpdate = true;
                     installationProblem = true;
                 } else if (!networkProblem) {
@@ -85,19 +85,20 @@ namespace ClassiCubeUpdater {
                             new BinaryWriter(versionStream).Write(currentVersion);
                             versionStream.Close();
                         }
-                    });
+                    }, args);
                 } else
-                    status = StartGame() ? Status.SUCCESS : Status.ERROR;
+                    status = StartGame(args) ? Status.SUCCESS : Status.ERROR;
             } catch (Exception ex) {
                 Error("Unexpected error occured", ex);
             }
         }
 
-        private static bool StartGame() {
+        private static bool StartGame(string[] args) {
             try {
                 ProcessStartInfo info = new ProcessStartInfo();
-                info.FileName = Config.GameBinaryPath;
+                info.FileName = args != null ? Config.GameExecutablePath : Config.GameLauncherPath;
                 info.WorkingDirectory = Config.GamePath;
+                info.Arguments = args != null ? string.Join(" ", args) : "";
                 Process.Start(info);
                 return true;
             } catch (Exception ex) {
@@ -108,7 +109,7 @@ namespace ClassiCubeUpdater {
 
         delegate void OnSuccessCallback();
 
-        private static void Update(OnSuccessCallback onSuccess) {
+        private static void Update(OnSuccessCallback onSuccess, String[] args) {
             try {
                 string updateFilePath = Config.GamePath + "\\update.zip";
 
@@ -133,7 +134,7 @@ namespace ClassiCubeUpdater {
                     } catch (Exception ex) {
                         Error("Could not install update", ex);
                     }
-                    status = StartGame() ? Status.SUCCESS : Status.ERROR;
+                    status = StartGame(args) ? Status.SUCCESS : Status.ERROR;
                 });
                 client.DownloadFileAsync(new Uri(Config.UpdateUrl), updateFilePath);
             } catch (Exception ex) {
