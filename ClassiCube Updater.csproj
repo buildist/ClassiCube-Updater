@@ -1,0 +1,145 @@
+﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{8BEB280A-BCBB-435B-A7BA-C6ABCE6F3CB8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>ClassiCube</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>ClassiCube</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>ClassiCubeUpdater.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ionic.Zip">
+      <HintPath>Libraries\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BSDLicense.txt" />
+    <Content Include="Client\Libraries\Ionic.Zip.dll" />
+    <Content Include="Client\update_background.gif" />
+    <Content Include="icon.ico" />
+    <Content Include="Install.txt" />
+    <Content Include="Server\update\version.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".git\config" />
+    <None Include=".git\description" />
+    <None Include=".git\HEAD" />
+    <None Include=".git\hooks\applypatch-msg.sample" />
+    <None Include=".git\hooks\commit-msg.sample" />
+    <None Include=".git\hooks\fsmonitor-watchman.sample" />
+    <None Include=".git\hooks\post-update.sample" />
+    <None Include=".git\hooks\pre-applypatch.sample" />
+    <None Include=".git\hooks\pre-commit.sample" />
+    <None Include=".git\hooks\pre-push.sample" />
+    <None Include=".git\hooks\pre-rebase.sample" />
+    <None Include=".git\hooks\pre-receive.sample" />
+    <None Include=".git\hooks\prepare-commit-msg.sample" />
+    <None Include=".git\hooks\update.sample" />
+    <None Include=".git\index" />
+    <None Include=".git\info\exclude" />
+    <None Include=".git\logs\HEAD" />
+    <None Include=".git\logs\refs\heads\master" />
+    <None Include=".git\logs\refs\remotes\origin\HEAD" />
+    <None Include=".git\objects\01\57d235fd948d9f287ccc3dd9c4197c6e04533c" />
+    <None Include=".git\objects\0a\fce7f255db09bfd630fff75801480102e5d770" />
+    <None Include=".git\objects\15\cb0ecb3e219d1701294bfdf0fe3f5cb5d208e7" />
+    <None Include=".git\objects\24\e9e841a31041ebafa76c441cb0f5b2b27c621a" />
+    <None Include=".git\objects\32\861f64f736018c9f5888156bf5cbdf50bf9ebb" />
+    <None Include=".git\objects\56\f8b64e319e8e10d7ed5ac4b9a694a167f485d7" />
+    <None Include=".git\objects\5a\402cb90e5c396395d9305c130dc11136935e95" />
+    <None Include=".git\objects\63\a9df41cbacbf0a186e01b303911a05cc019d2a" />
+    <None Include=".git\objects\64\2002d6e8560ac5f9cfdefa7f2fd1719d18b5d1" />
+    <None Include=".git\objects\6f\d12100971e078ee98c42ae9fecae1f414e00ad" />
+    <None Include=".git\objects\71\e6ba53cc17ba6360e5fdd6f9112e7abff426f5" />
+    <None Include=".git\objects\74\2335165ab9d559c204e1ece0465f1b8a183e27" />
+    <None Include=".git\objects\80\40980f3190eee9306f475ce0d7064009a5e583" />
+    <None Include=".git\objects\89\7bdda6df93ba73b07b961ad0d84493507e85f7" />
+    <None Include=".git\objects\8c\f4e601708ec0367a9b07391cb6d96b688c8e5c" />
+    <None Include=".git\objects\95\fa92885578745360df875d90d9231a7e618e78" />
+    <None Include=".git\objects\a4\87d9f733841406600bbe58a2b1622cf05e7912" />
+    <None Include=".git\objects\a6\72e2a415d7e7301ab00024f683d5db24ae4148" />
+    <None Include=".git\objects\c8\1260588e99268258bffe894cc6f0ed709c31ad" />
+    <None Include=".git\objects\da\3dc935e5cb8651a65fa44db39a16376eb03891" />
+    <None Include=".git\objects\e0\fcdc7f9742f6a7e1a20dde96c0b34984e27264" />
+    <None Include=".git\objects\e5\9f1ceb740825fea72ce67baa26cc65d07171b1" />
+    <None Include=".git\packed-refs" />
+    <None Include=".git\refs\heads\master" />
+    <None Include=".git\refs\remotes\origin\HEAD" />
+    <None Include="Server\update\empty.zip" />
+    <None Include="Server\update\index.php" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Client\Config.cs" />
+    <Compile Include="Client\Program.cs" />
+    <Compile Include="Client\Updater.cs" />
+    <Compile Include="Client\UpdaterDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client\UpdaterDialog.Designer.cs">
+      <DependentUpon>UpdaterDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Client\UpdaterStatus.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Client\UpdaterDialog.resx">
+      <DependentUpon>UpdaterDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".git\objects\info\" />
+    <Folder Include=".git\objects\pack\" />
+    <Folder Include=".git\refs\tags\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>
