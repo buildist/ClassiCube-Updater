@@ -32,6 +32,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Files]
 Source: "C:\Users\Jacob\Desktop\classicube-updater\bin\Release\ClassiCube.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Jacob\Desktop\classicube-updater\bin\Release\Ionic.Zip.dll"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
